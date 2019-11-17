@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Newsroom</string>
+
+    <string name="news_api_key">5080505a75f840b3a9492371d98646b5</string>
+
+</resources>
