@@ -4,8 +4,11 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
-@Entity
+@Entity(
+    tableName = "articles"
+)
 data class NewsArticle(
 
     @PrimaryKey(autoGenerate = true)
@@ -34,4 +37,4 @@ data class NewsArticle(
     @ColumnInfo(name = "content")
     @SerializedName("content") var content: String? = null
 
-)
+):Serializable

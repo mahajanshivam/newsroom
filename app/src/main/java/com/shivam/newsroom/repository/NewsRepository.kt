@@ -44,12 +44,17 @@ class NewsRepository {
     }
 
 
-    fun getNews(source: String, key: String): MutableLiveData<NewsResponse> {
+    fun getNews(
+        source: String,
+        key: String,
+        pageSize: Int,
+        page: Int
+    ): MutableLiveData<NewsResponse> {
 
         val newsLiveData: MutableLiveData<NewsResponse> = MutableLiveData()
 
 
-        newsApi?.getNewsList(source,key)?.subscribeOn(Schedulers.io())
+        newsApi?.getNewsList(source, key, pageSize, page)?.subscribeOn(Schedulers.io())
             ?.observeOn(AndroidSchedulers.mainThread())
             ?.subscribeWith(object : DisposableSingleObserver<NewsResponse>() {
                 override fun onSuccess(news: NewsResponse) {

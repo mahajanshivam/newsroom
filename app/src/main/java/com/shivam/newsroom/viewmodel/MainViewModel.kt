@@ -20,10 +20,14 @@ class MainViewModel : ViewModel() {
 
     }
 
-    fun getNewsRepository(key: String): LiveData<NewsResponse?>? {
+    fun getNewsRepository(
+        key: String,
+        pageSize: Int,
+        page: Int
+    ): LiveData<NewsResponse?>? {
 
 
-        newsResponseMutableLiveData = newsRepository?.getNews("google-news", key)
+        newsResponseMutableLiveData = newsRepository?.getNews("google-news", key, pageSize, page)
 
         return newsResponseMutableLiveData
     }
